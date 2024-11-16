@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
         try {
             User user = new User();
             user.setEmail(userDto.getEmail());
-            user.setPassword(encoder.encode(userDto.getEmail()).getBytes());
+            user.setPassword(encoder.encode(userDto.getEmail()));
             user.setRole(userDto.getRole());
             repository.save(user);
         } catch (Exception e) {

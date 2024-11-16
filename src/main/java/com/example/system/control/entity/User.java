@@ -41,7 +41,7 @@ public class User {
      */
     @Schema(description = "Пароль пользователя")
     @Column(name = "password")
-    private byte[] password;
+    private String password;
 
     /**
      * Роль пользователя (MODERATOR, USER).

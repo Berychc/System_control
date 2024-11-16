@@ -1,7 +1,9 @@
 package com.example.system.control.dto;
 
 import com.example.system.control.enums.Role;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.Email;
@@ -29,7 +31,7 @@ public class UserDto {
      * Не может быть пустым.
      */
     @NotBlank(message = "Password  не может быть пустым!")
-    private byte[] password;
+    private String password;
 
     /**
      * Роль пользователя.
