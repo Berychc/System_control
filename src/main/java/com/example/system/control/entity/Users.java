@@ -20,7 +20,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
-public class User {
+public class Users {
 
     /**
      * Уникальный идентификатор пользователя.

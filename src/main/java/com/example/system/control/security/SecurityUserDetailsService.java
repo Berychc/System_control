@@ -1,6 +1,6 @@
 package com.example.system.control.security;
 
-import com.example.system.control.entity.User;
+import com.example.system.control.entity.Users;
 import com.example.system.control.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,7 +29,7 @@ public class SecurityUserDetailsService implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = repository.findByEmail(username);
+        Optional<Users> user = repository.findByEmail(username);
         return user.map(SecurityUserDetails::new)
                 .orElseThrow(() -> new UsernameNotFoundException(String.format("%s - не найден", username)));
     }

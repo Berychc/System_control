@@ -1,6 +1,6 @@
 package com.example.system.control.repository;
 
-import com.example.system.control.entity.User;
+import com.example.system.control.entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +11,7 @@ import java.util.Optional;
  * Предоставляет методы для поиска изображений в базе данных.
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<Users, Integer> {
 
     /**
      * Проверка, существует ли пользователь с указанным адресом электронной почты.
@@ -27,5 +27,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
      * @param email Адрес электронной почты пользователя.
      * @return Optional содержащий пользователя, если он найден, или пустой объект, если нет.
      */
-    Optional<User> findByEmail(String email);
+    Optional<Users> findByEmail(String email);
 }

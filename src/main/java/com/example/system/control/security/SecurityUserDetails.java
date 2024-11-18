@@ -1,6 +1,6 @@
 package com.example.system.control.security;
 
-import com.example.system.control.entity.User;
+import com.example.system.control.entity.Users;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,7 +16,7 @@ import java.util.*;
 @AllArgsConstructor
 public class SecurityUserDetails implements UserDetails {
 
-    private final User user;
+    private final Users user;
 
     /**
      * Возвращает права доступа пользователя.

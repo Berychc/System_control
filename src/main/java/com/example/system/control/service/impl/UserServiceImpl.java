@@ -1,7 +1,7 @@
 package com.example.system.control.service.impl;
 
 import com.example.system.control.dto.UserDto;
-import com.example.system.control.entity.User;
+import com.example.system.control.entity.Users;
 import com.example.system.control.repository.UserRepository;
 import com.example.system.control.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,19 +30,19 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void registerUser(UserDto userDto) {
-        if (userDto.getEmail() == null)
-            throw new RuntimeException(String.format("%s является пустым!", userDto));
+        if (userDto.getEmail() == null || userDto.getEmail().isEmpty())
+            throw new RuntimeException("Email является пустым!");
         if (repository.existsByEmail(userDto.getEmail()))
             throw new RuntimeException(String.format("Пользователь с таким %s уже существует!", userDto.getEmail()));
 
         try {
-            User user = new User();
+            Users user = new Users();
             user.setEmail(userDto.getEmail());
-            user.setPassword(encoder.encode(userDto.getEmail()));
+            user.setPassword(encoder.encode(userDto.getPassword()));
             user.setRole(userDto.getRole());
             repository.save(user);
         } catch (Exception e) {
-            String.format("Произошла ошибка при попытке сохранить пользователя: %s.", e.getMessage());
+            throw new RuntimeException(String.format("Произошла ошибка при попытке сохранить пользователя: %s.", e.getMessage()));
         }
     }
 }
